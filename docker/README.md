@@ -13,19 +13,20 @@ with all of the pieces running on one server.
 
     $ docker images    (make sure they all build)
 
-    REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
-    tsugi_dev     latest    e0c605b62379   17 seconds ago   1.65GB
-    tsugi_mariadb latest    f28d5bb8e4e9   18 seconds ago   1.63GB
-    tsugi_prod    latest    07503b2e53cc   33 seconds ago   1.42GB
-    tsugi_base    latest    b678abc4b0b0   9 minutes ago    1.42GB
+    REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+    tsugi_dev       latest    7705578909c8   14 seconds ago   431MB
+    tsugi_mariadb   latest    57f9bb037655   16 seconds ago   416MB
+    tsugi_prod      latest    f484f91386e1   32 seconds ago   65.6MB
+    tsugi_base      latest    7308bd1b0fe3   33 seconds ago   65.6MB
+    tsugi_ubuntu    latest    7308bd1b0fe3   33 seconds ago   65.6MB
 
-    $ docker run -p 8080:80 -e TSUGI_SERVICENAME=TSFUN -e MYSQL_ROOT_PASSWORD=secret --name ubuntu -dit tsugi_dev:latest
+    $ docker run -p 8080:80 -e TSUGI_SERVICENAME=TSFUN -e MYSQL_ROOT_PASSWORD=secret --name tsugi -dit tsugi_dev:latest
 
 Navigate to http://localhost:8080/
 
 To log in and look around, use:
 
-    $ docker exec -it ubuntu bash
+    $ docker exec -it tsugi bash
     root@73c370052747:/var/www/html/tsugi/admin# 
 
 To attach and watch the tail logs:
@@ -56,8 +57,8 @@ To build one image
 
 To test the ami scripts in a docker container so you can start over and over:
 
-    docker run -p 8080:80 -p 3306:3306 --name ubuntu -dit ubuntu:20.04
-    docker exec -it ubuntu bash
+    docker run -p 8080:80 -p 3306:3306 --name tsugi -dit ubuntu:20.04
+    docker exec -it tsugi bash
 
 Then in the docker:
 
@@ -83,5 +84,4 @@ Debugging commands
 ------------------
 
     service --status-all
-    service mariadb start
 

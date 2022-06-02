@@ -10,7 +10,9 @@ echo "Cleaning up images..."
 docker rmi $(docker images | grep ^tsugi | awk '{print $1}') > /dev/null 2>&1
 
 echo "Building images..."
-cd base
+cd ubuntu
+docker build --tag tsugi_ubuntu .
+cd ../base
 docker build --tag tsugi_base .
 cd ../prod
 docker build --tag tsugi_prod .

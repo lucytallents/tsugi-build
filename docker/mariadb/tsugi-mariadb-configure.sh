@@ -27,7 +27,10 @@ fi
 fi
 touch $COMPLETE
 
+# We will start all of these as the names they are a changing from ubuntu 20-22
 echo Starting mariadb
+service mysql start
+service mysqldb start
 service mariadb start
 
 echo ""
