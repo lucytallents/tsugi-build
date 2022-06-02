@@ -32,6 +32,7 @@ echo Starting mariadb
 service mysql start
 service mysqldb start
 service mariadb start
+service mariadbd start
 
 echo ""
 if [ "$@" == "return" ] ; then
