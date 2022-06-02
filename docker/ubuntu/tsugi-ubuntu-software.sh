@@ -5,7 +5,19 @@ cat > /usr/sbin/policy-rc.d << EOF
 exit 0
 EOF
 
+apt update
+apt upgrade
+apt -y install software-properties-common
+
 env
 
-# Cleanup is outside this file
+echo ======= Cleanup Start
+df
+apt-get -y autoclean
+apt-get -y clean
+apt-get -y autoremove
+rm -rf /var/lib/apt/lists/*
+echo ======= Cleanup Done
+df
+echo ======= Cleanup Done
 
