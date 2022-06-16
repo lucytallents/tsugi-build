@@ -69,9 +69,9 @@ Then in the docker:
     git config user.email "csev@umich.edu"
 
     cd /root
-    git clone https://github.com/tsugiproject/docker-php.git
+    git clone https://github.com/tsugiproject/tsugi-build.git
 
-    cd docker-php
+    cd tsugi-build
     bash ami/build.sh 
 
 This does all of the docker stuff.  Then to bring it up / configure it:
