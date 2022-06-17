@@ -11,6 +11,8 @@ touch $COMPLETE
 
 # Save the Environment Variables for later cron jobs if we are starting from Docker
 if [ ! -f "/root/ubuntu-env.sh" ] ; then
+    echo "Creating /root/ubuntu-env.sh from docker variables"
+    env
     echo "# created from tsugi-ubuntu-configure.sh" > /root/ubuntu-env.sh
     env | sort | grep '^TSUGI' | sed 's/^/export /' >>  /root/ubuntu-env.sh
     env | sort | grep '^POSTFIX' | sed 's/^/export /' >>  /root/ubuntu-env.sh
