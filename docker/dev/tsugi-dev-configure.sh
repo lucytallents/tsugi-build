@@ -7,6 +7,9 @@ if [ -f "$COMPLETE" ]; then
     echo "Dev configure already has run"
 else
 
+source /root/ubuntu-env.sh
+env
+
 if [ -z "$MYSQL_ROOT_PASSWORD" ]; then
 MYSQL_ROOT_PASSWORD=root
 fi

@@ -7,6 +7,8 @@ if [ -f "$COMPLETE" ]; then
     echo "MariaDB configure already has run"
 else
 
+source /root/ubuntu-env.sh
+
 # MariaDB
 # sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
 

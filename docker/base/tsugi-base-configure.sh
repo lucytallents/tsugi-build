@@ -14,6 +14,9 @@ if [ ! -f "/root/ubuntu-env.sh" ] ; then
     env | sort > /root/tsugi-env-raw-dump
 fi
 
+source /root/ubuntu-env.sh
+env
+
 # Sanity check in case Docker went wrong with freshly mounted html folder
 if [ -d "/var/www/html" ] ; then
     echo "Normal case: /var/www/html is a directory";

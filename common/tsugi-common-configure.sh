@@ -3,6 +3,8 @@ echo "Running Tsugi common configure"
 echo Running tsugi-common `date "+%F-%T"`
 touch /tmp/tsugi-common-`date "+%F-%T"`
 
+source /root/ubuntu-env.sh
+
 echo "====== Environment variables"
 env | sort
 
