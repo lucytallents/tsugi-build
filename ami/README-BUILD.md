@@ -10,14 +10,14 @@ building like "dev-sakai-20-81" or testing something.
 Step 2: Choose an Amazon Machine Image (AMI)
 
     Select "Community AMIs"
-    Search for "ubuntu 20.04 amd64-server" find something like:
+    Search for "ubuntu 20.04 amd64-server" under "Community AMIs" and find something like:
     ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20220610 - ami-0960ab670c8bb45f3
 
 Step 3: Choose an Instance Type - t2.micro
 
 Step 4: Choose your access key
 
-Step 5: Configure Security Group - Select an existing security group
+Step 5: Configure Security Group - You will almost always select an existing security group
 
     Put this in a wide-open security group (i.e. not the cloudflare-80 group)
 
@@ -28,7 +28,7 @@ Step 7: Advanced details - leave a alone for now
 Once your EC2 Instance is up and running and you have an IP address, log in and
 run the following sequence:
 
-    ssh ubuntu@3.145.126.39
+    ssh ubuntu@18.188.204.195
 
     sudo bash
     cd /root
@@ -40,7 +40,7 @@ run the following sequence:
     # To build a demo / dev instance instead of prod
     # bash ubuntu/build-dev.sh
 
-    # Navigate to http://3.145.126.39 make sure you see the empty Apache screen...
+    # Navigate to http://18.188.204.195 make sure you see the empty Apache screen...
 
 At this point if you are building a one-off server skip to the 
 "Configure a Hand-crafted Production Server" instructions below.
@@ -104,7 +104,7 @@ is as follows:
     bash user_data.sh
 
 At this point you should have a running Tsugi on port 80.  You can test to see if it came
-up at http://3.145.126.39 to see your top page.  Most links will not work until you have
+up at http://18.188.204.195 to see your top page.  Most links will not work until you have
 DNS routing requests to the `APPHOME` url from your `user_data.sh`.
 
 You can see how to set your server up behind Cloudflare at:
