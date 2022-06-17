@@ -15,6 +15,8 @@ export LC_ALL=C.UTF-8
 locale -a
 env
 
+TSUGI_PHP_VERSION=8.0
+
 echo ======= Update 1
 apt -y update
 
@@ -38,12 +40,12 @@ add-apt-repository -y ppa:ondrej/apache2
 add-apt-repository -y universe
 apt update
 apt-get install -y apache2
-apt-get install -y php8.1
-apt-get install -y libapache2-mod-php8.1 php8.1-mysql php8.1-curl
-apt-get install -y php8.1-mbstring php8.1-zip php8.1-xml php8.1-gd
-apt-get install -y php8.1-apcu
-apt-get install -y php8.1-intl
-apt-get install -y php8.1-memcached php8.1-memcache
+apt-get install -y php${TSUGI_PHP_VERSION}
+apt-get install -y libapache2-mod-php${TSUGI_PHP_VERSION} php${TSUGI_PHP_VERSION}-mysql php${TSUGI_PHP_VERSION}-curl
+apt-get install -y php${TSUGI_PHP_VERSION}-mbstring php${TSUGI_PHP_VERSION}-zip php${TSUGI_PHP_VERSION}-xml php${TSUGI_PHP_VERSION}-gd
+apt-get install -y php${TSUGI_PHP_VERSION}-apcu
+apt-get install -y php${TSUGI_PHP_VERSION}-intl
+apt-get install -y php${TSUGI_PHP_VERSION}-memcached php${TSUGI_PHP_VERSION}-memcache
 a2enmod -q rewrite dir expires headers
 phpenmod mysqlnd pdo_mysql intl
 
