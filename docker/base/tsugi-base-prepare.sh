@@ -9,7 +9,10 @@ apt-get install -y mailutils
 echo ====== Check out build scripts if they are not already there
 if [ ! -d "/root/tsugi-build" ]; then
     git clone https://github.com/tsugiproject/tsugi-build.git /root/tsugi-build
-    if [ -f /home/ubuntu/ami-sql ]
+fi
+
+if [ -d "/root/tsugi-build" ]; then
+    if [ ! -f /home/ubuntu/ami-sql ]
     then
         echo "Setting up user_data.sh compatibility patch in /home/ubuntu/ami-sql"
         ln -s /root/tsugi-build/ami/ami-sql /home/ubuntu/ami-sql

@@ -15,30 +15,32 @@ Step 2: Choose an Amazon Machine Image (AMI)
 
 Step 3: Choose an Instance Type - t2.micro
 
-Step 4: Configure Security Group - Select an existing security group
+Step 4: Choose your access key
+
+Step 5: Configure Security Group - Select an existing security group
 
     Put this in a wide-open security group (i.e. not the cloudflare-80 group)
 
-Step 5: Add Storage - Accept the defaults (8GB)
+Step 6: Add Storage - Accept the defaults (8GB)
 
-Step 6: Advanced details - leave a alone for now
+Step 7: Advanced details - leave a alone for now
 
 Once your EC2 Instance is up and running and you have an IP address, log in and
 run the following sequence:
 
-    ssh ubuntu@3.21.154.160
+    ssh ubuntu@3.145.126.39
 
     sudo bash
     cd /root
     git clone https://github.com/tsugiproject/tsugi-build.git
     cd tsugi-build
-    # If testing a new version, you might switch to a branch here
+    # If testing a new version of tsugi-build, you checkout a branch here
     bash ubuntu/build-prod.sh
 
     # To build a demo / dev instance instead of prod
     # bash ubuntu/build-dev.sh
 
-    # Navigate to http://3.21.154.160 make sure you see the empty Apache screen...
+    # Navigate to http://3.145.126.39 make sure you see the empty Apache screen...
 
 At this point if you are building a one-off server skip to the 
 "Configure a Hand-crafted Production Server" instructions below.
@@ -102,7 +104,7 @@ is as follows:
     bash user_data.sh
 
 At this point you should have a running Tsugi on port 80.  You can test to see if it came
-up at http://3.21.154.160 to see your top page.  Most links will not work until you have
+up at http://3.145.126.39 to see your top page.  Most links will not work until you have
 DNS routing requests to the `APPHOME` url from your `user_data.sh`.
 
 You can see how to set your server up behind Cloudflare at:
